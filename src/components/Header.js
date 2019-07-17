@@ -8,11 +8,11 @@ class Header extends Component {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-info">
-          <ul class="navbar-nav">
-            <li class="nav-item">
+          <ul className="navbar-nav">
+            <li className="nav-item">
               <a className="nav-link">Home</a>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link to="/about">
                 <a className="nav-link">About</a>
               </Link>
