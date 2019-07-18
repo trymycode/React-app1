@@ -1,28 +1,28 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
+const divStyle = {
+  margin: "1rem auto",
+  border: "5px solid #333",
+  fontSize: "1.8rem",
+  padding: "5px 10px"
+};
+
 class About extends Component {
   render() {
     console.log("this props", this.props.name);
     return (
       <div className="container">
         {this.props.name && this.props.place ? (
-          <p>
-            Username - {this.props.name}
-            <br />
-            Hometown - {this.props.place}
-          </p>
+          <div style={divStyle}>
+            Username - {this.props.name}, Hometown - {this.props.place}
+          </div>
         ) : (
-          <p> To see user details, please fill up the following form.</p>
+          <div class="jumbotron mt-2">
+            <h1 class="display-4">
+              Welcome to About page.To see the user detals please login.
+            </h1>
+          </div>
         )}
-
-        <Link to="/">
-          <button
-            className="btn btn-info"
-            style={{ position: "fixed", bottom: "50%" }}
-          >
-            HomePage
-          </button>
-        </Link>
       </div>
     );
   }

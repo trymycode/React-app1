@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 class Comments extends Component {
   constructor(props) {
@@ -23,25 +22,26 @@ class Comments extends Component {
       <div className="container">
         {this.props.name && this.props.place ? (
           <div className="container">
+            <h2 className="text-secondary">
+              These are few comments of our users
+            </h2>
+            <hr />
             {this.state.comments.map(c => (
-              <li>
-                <em> {c.name}</em> - {c.body}
-              </li>
+              <div>
+                <li className="text-info">
+                  <em> {c.name}</em> - {c.body}
+                </li>
+                <hr />
+              </div>
             ))}
           </div>
         ) : (
-          <p>
-            Welcome to Comments page.To see the comments please fill up the form
-          </p>
+          <div class="jumbotron mt-2">
+            <h1 class="display-4">
+              Welcome to Comments page.To see the comments please login.
+            </h1>
+          </div>
         )}
-        <Link to="/">
-          <button
-            className="btn btn-info"
-            style={{ position: "fixed", bottom: "0%", marginBottom: "10px" }}
-          >
-            HomePage
-          </button>
-        </Link>
       </div>
     );
   }

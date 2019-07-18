@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import Home from "./components/Home";
 import Header from "./components/Header";
 import About from "./components/About";
 import Comments from "./components/Comments";
@@ -13,14 +14,10 @@ class App extends Component {
       place: ""
     };
   }
-  onChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-  onSubmit = e => {
-    e.preventDefault();
-    console.log("onsubmit");
+  receiveParams = (name, place) => {
+    console.log("value of name and place", name, place);
+    this.setState({ username: name, place: place });
+    console.log(this.state.username, this.state.place);
   };
   render() {
     return (
@@ -28,48 +25,25 @@ class App extends Component {
         <Router>
           <Header />
           <Route
+            exact
             path="/about"
             component={() => (
               <About name={this.state.username} place={this.state.place} />
             )}
           />
           <Route
+            exact
+            path="/"
+            component={() => <Home receiveParams={this.receiveParams} />}
+          />
+          <Route
+            exact
             path="/comments"
             component={() => (
               <Comments name={this.state.username} place={this.state.place} />
             )}
           />
         </Router>
-        <div className="container">
-          <h2 className="">Welcome to Pepper Square</h2>
-          <form onSubmit={this.onSubmit} className="mt-4">
-            <div className="form-group row">
-              <div className="col-sm-10">
-                <input
-                  type="text"
-                  className="form-control rounded border border-secondary"
-                  name="username"
-                  placeholder="username"
-                  value={this.state.username}
-                  onChange={this.onChange}
-                />
-              </div>
-            </div>
-            <div className="form-group row">
-              <div className="col-sm-10">
-                <input
-                  type="text"
-                  className="form-control rounded border border-secondary"
-                  name="place"
-                  placeholder="Hometown"
-                  value={this.state.place}
-                  onChange={this.onChange}
-                />
-              </div>
-            </div>
-            <input type="submit" value="Login" className="btn btn-success" />
-          </form>
-        </div>
       </div>
     );
   }

@@ -10,7 +10,9 @@ class Header extends Component {
         <nav className="navbar navbar-expand-lg navbar-light bg-info">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link">Home</a>
+              <Link to="/">
+                <a className="nav-link">Home</a>
+              </Link>
             </li>
             <li className="nav-item">
               <Link to="/about">
