@@ -19,7 +19,7 @@ class About extends Component {
         ) : (
           <div class="jumbotron mt-2">
             <h1 class="display-4">
-              Welcome to About page.To see the user detals please login.
+              Welcome to About page.To see the user details please login.
             </h1>
           </div>
         )}
